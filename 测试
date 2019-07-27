@@ -1,0 +1,42 @@
+## java类加载问题 ##
+java类加载相关在大学的时候就有接触，但当时只想着做项目，对于java内存模型，jvm之类的基础知识基本没有了解。趁着工作之余，赶紧补补读书时遗留的功课。
+
+当然这次再次了解java类加载相关知识也是源于最近学习dubbo相关知识，读到dubbo关于增强型SPI的使用，里面关于ServiceLoader的介绍，想着把这块捡起来，也算是为以后学习jvm开个头。
+
+### 初探
+hello world！
+
+    public class Main {
+        public static void main(String[] args)  {
+            System.out.println("hello world!");
+        }
+    }
+
+对于这样一个简单的类，在ide中，直接点击run java application，控制台就能打印“hello world”这个结果。如果手动执行，控制台输入：
+
+- **javac Main.java** 编译.java文件得到Main.class文件
+- **java Main**加载Main.class文件，控制台打印“hello world”
+
+今天网上查资料找文档主要还是了解了类加载过程，对于java源码编译过程留在后面详细了解
+
+### java类加载器概念
+类加载器将java字节码（.class文件）加载到jvm中，类加载器负责读取 Java 字节代码，并转换成 java.lang.Class类的一个实例。每个这样的实例用来表示一个 Java 类。通过此实例的newInstance()方法就可以创建出该类的一个对象。**（这段抄的）**
+
+#### 相关类介绍
+1. ClassLoader
+源码很多，挑简单的说，ClassLoader中与类加载相关的方法
+
+|方法名   |描述   |
+
+| 水果        | 价格    |  数量  |
+| --------   | -----:   | :----: |
+| 香蕉        | $1      |   5    |
+| 苹果        | $1      |   6    |
+| 草莓        | $1      |   7    |
+
+2. ExtClassLoader
+3. AppClassLoader
+
+
+
+
