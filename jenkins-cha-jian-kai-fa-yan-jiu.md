@@ -3,14 +3,10 @@
 ## 环境配置
 
 1. jdk安装
-
 2. maven安装
+3. maven配置 maven配置中需要指定jenkins仓库源，以保证jenkins开发相关插件都能下载 maven中settings.xml配置如下，该配置为用户settings.xml配置，非系统settings.xml配置
 
-3. maven配置
-maven配置中需要指定jenkins仓库源，以保证jenkins开发相关插件都能下载
-maven中settings.xml配置如下，该配置为用户settings.xml配置，非系统settings.xml配置
-
-```xml
+```markup
 <settings>
   <pluginGroups>
     <pluginGroup>org.jenkins-ci.tools</pluginGroup> 
@@ -49,7 +45,7 @@ maven中settings.xml配置如下，该配置为用户settings.xml配置，非系
 
 ## 创建jenkins插件项目
 
-```shell
+```text
 mvn -U archetype:generate -Dfilter="io.jenkins.archetypes:"
 …
 Choose archetype:
@@ -81,9 +77,10 @@ package: io.jenkins.plugins.sample
 
 创建时按照提示操作即可，创建完成会生成名为demo-plugin的maven项目，可通过
 
-```shell
+```text
 cd demo-plugin
 mvn verify
 ```
 
 命令对项目进行构建，首次运行上述命令时maven会下载相关依赖，存在一定的耗时，若环境配置中
+
